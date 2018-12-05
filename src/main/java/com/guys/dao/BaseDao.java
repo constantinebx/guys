@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.hibernate.Query;
 
+import com.guys.dao.impl.Page;
+
 public interface BaseDao<T> {
 	/**
 	 * 根据ID加载PO实例

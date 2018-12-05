@@ -27,14 +27,14 @@ public interface UserLoginService {
 	 * @throws ValidateCodeErrorException 邮箱验证码错误
 	 * @throws EmailConflictException 邮箱不一致
 	 */
-	public void register(UserLogin UserLogin, HttpSession session) throws UserExistException, ValidateCodeExpireException, ValidateCodeErrorException, EmailConflictException;
+	public void register(UserLogin userLogin, HttpSession session) throws UserExistException, ValidateCodeExpireException, ValidateCodeErrorException, EmailConflictException;
 
 	/**
 	 * 更新用户
 	 * 
 	 * @param UserLogin
 	 */
-	public void update(UserLogin UserLogin);
+	public void update(UserLogin userLogin);
 
 	/**
 	 * 根据用户名查询UserLogin对象
@@ -43,7 +43,7 @@ public interface UserLoginService {
 	 *            用户名
 	 * @return
 	 */
-	public UserLogin getUserLoginByUserLoginName(String UserLoginName);
+	public UserLogin getUserLoginByUserLoginName(String userLoginName);
 	
 	/**
 	 * 根据邮箱查询UserLogin对象
@@ -59,7 +59,7 @@ public interface UserLoginService {
 	 * @param UserLoginId
 	 * @return
 	 */
-	public UserLogin getUserLoginById(int UserLoginId);
+	public UserLogin getUserLoginById(int userLoginId);
 
 	/**
 	 * 将用户锁定，锁定的用户不能够登录
@@ -67,7 +67,7 @@ public interface UserLoginService {
 	 * @param UserLoginName
 	 *            锁定目标用户的用户名
 	 */
-	public void lockUserLogin(String UserLoginName);
+	public void lockUserLogin(String userLoginName);
 
 	/**
 	 * 解除用户的锁定
@@ -75,7 +75,7 @@ public interface UserLoginService {
 	 * @param UserLoginName
 	 *            解除锁定目标用户的用户名
 	 */
-	public void unlockUserLogin(String UserLoginName);
+	public void unlockUserLogin(String userLoginName);
 
 	/**
 	 * 根据用户名作为条件，执行模糊查询操作
@@ -84,7 +84,7 @@ public interface UserLoginService {
 	 *            查询用户名
 	 * @return 所有用户名前缀匹配的UserLoginName的用户
 	 */
-	public List<UserLogin> queryUserLoginByUserLoginName(String UserLoginName);
+	public List<UserLogin> queryUserLoginByUserLoginName(String userLoginName);
 
 	/**
 	 * 获取所有用户
@@ -99,7 +99,7 @@ public interface UserLoginService {
 	 * @param UserLogin
 	 * @param isSameDay 判断当天是否已经登录
 	 */
-	public void loginSuccess(UserLogin UserLogin, boolean isSameDay);
+	public void loginSuccess(UserLogin userLogin, boolean isSameDay);
 	
 	/**
 	 * 发送验证码,并判断邮箱是否被注册
@@ -108,5 +108,5 @@ public interface UserLoginService {
 	 * @param to
 	 * @throws EmailExistException 
 	 */
-	public void sendValidateCode(UserLogin UserLogin, String to) throws EmailExistException;
+	public void sendValidateCode(UserLogin userLogin, String to) throws EmailExistException;
 }

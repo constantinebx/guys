@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "t_user_login")
@@ -31,6 +32,34 @@ public class UserLogin {
 	
 	@Column(name = "upd_time",nullable = false)
 	private Date updTime ;
+	
+	/**
+	 * 发送验证码时接收邮箱，但不存入数据库
+	 */
+	@Transient
+	private String tempEmail ;
+	
+	/**
+	 * 验证码
+	 */
+	@Transient
+	private String validateCode ;
+
+	public String getTempEmail() {
+		return tempEmail;
+	}
+
+	public void setTempEmail(String tempEmail) {
+		this.tempEmail = tempEmail;
+	}
+
+	public String getValidateCode() {
+		return validateCode;
+	}
+
+	public void setValidateCode(String validateCode) {
+		this.validateCode = validateCode;
+	}
 
 	public Integer getIuserLogin() {
 		return iuserLogin;

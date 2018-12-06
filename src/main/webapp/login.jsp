@@ -5,7 +5,7 @@
     <head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-		<title>guys</title>
+		<title>登录</title>
 		<link rel="stylesheet" href="layui-v2.3.0/layui/css/layui.css" media="all">
     </head>
 
@@ -39,7 +39,7 @@
 					<a href="javascript:layer.msg(&#39;敬请期待&#39;);"><i class="layui-icon layui-icon-login-wechat"></i></a>
 					<a href="javascript:layer.msg(&#39;敬请期待&#39;);"><i class="layui-icon layui-icon-login-weibo"></i></a>
 
-					<a class="layadmin-user-jump-change" href="register.html" style="color:#009688">注册帐号</a>
+					<a class="layadmin-user-jump-change" href="<c:url value="/register.jsp"/>" style="color:#009688">注册帐号</a>
 				</div>
 			</div>
 		</div>
@@ -47,9 +47,16 @@
     	<!-- 页脚 -->
     	<%@include file="foot.jsp" %>
 
-		<ul class="layui-fixbar">
-			<li class="layui-icon layui-fixbar-top" lay-type="top" style="background-color:rgb(0,150,136);display:list-item">
-			<a href="#top">↑</a></li>
-		</ul>
+		<script>
+			layui.use('form', function(){
+			  var form = layui.form;
+			  
+			  //监听提交
+			  form.on('submit(formDemo)', function(data){
+			    layer.msg(JSON.stringify(data.field));
+			    return false;
+			  });
+			});
+		</script>
     </body>
 </html>

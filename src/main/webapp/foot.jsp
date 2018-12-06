@@ -37,6 +37,10 @@
 		</div>
 	</div>
 </div>
+<ul class="layui-fixbar">
+	<li class="layui-icon layui-fixbar-top" lay-type="top" style="background-color:rgb(0,150,136);display:list-item">
+	<a href="#top"><i class="layui-icon layui-icon-top" style="font-size: 50px; color: black;"></i></a></li>
+</ul>
 
 <style type="text/css">
     #footer {

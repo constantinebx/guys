@@ -16,8 +16,8 @@
 
 		<!--主体-->
 		<div class="layui-container layui-row" style="width:1024px;height:658px;background-image:url(images/2.jpg);position:relative">
-			<div class="layui-form layui-container layui-col-md4 layui-col-md-offset4" style="width:256px;height:390px;background-color:white;position:absolute;top:10%">
-				<h2 style="text-align:center">注册</h2>
+			<div class="layui-form layui-container layui-col-md4 layui-col-md-offset4" style="width:256px;height:410px;background-color:white;position:absolute;top:10%">
+				<h2 style="text-align:center;padding: 10px">注册</h2>
 				<div class="layui-form-item">
 					<input class="layui-input" id="username" lay-verify="required" name="username" placeholder="昵称" type="text" />
 				</div>

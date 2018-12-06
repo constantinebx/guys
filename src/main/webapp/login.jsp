@@ -25,10 +25,10 @@
 					<label class="layadmin-user-login-icon layui-icon layui-icon-password"></label>
 					<input class="layui-input" id="password" lay-verify="required" name="password" placeholder="密码" type="password" />
 				</div>
-				<div class="layui-form-item" style="margin-bottom: 20px;">
-					<input lay-skin="primary" name="remember" title="记住密码" type="checkbox" />
-					<div class="layui-unselect layui-form-checkbox" lay-skin="primary">记住密码<i class="layui-icon layui-icon-ok"></i></div>
-					<a class="layadmin-user-jump-change" style="margin-top: 8px;" href="forget.html">忘记密码？</a>
+				<div class="layui-form-item">
+					<label>
+						<input type="checkbox" name="remember" lay-skin="primary">记住密码</input>
+					</label>
                 </div>
 				<div class="layui-form-item">
 					<button class="layui-btn layui-btn-fluid" id="login-submit" lay-filter="login-submit" lay-submit="">登 录</button>
@@ -47,15 +47,10 @@
     	<!-- 页脚 -->
     	<%@include file="foot.jsp" %>
 
+		<script src="layui-v2.3.0/layui/layui.js"></script>
 		<script>
 			layui.use('form', function(){
 			  var form = layui.form;
-			  
-			  //监听提交
-			  form.on('submit(formDemo)', function(data){
-			    layer.msg(JSON.stringify(data.field));
-			    return false;
-			  });
 			});
 		</script>
     </body>

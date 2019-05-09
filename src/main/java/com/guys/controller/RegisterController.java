@@ -24,42 +24,53 @@ import com.guys.model.UserLogin;
 import com.guys.service.UserLoginService;
 import com.guys.utils.EmailUtil;
 
-@Controller("/register")
+/**
+ * 注册控制器
+ * @author 新地球
+ *
+ */
+@Controller
 public class RegisterController extends BaseController {
 	@Resource(name = "userLoginService")
 	private UserLoginService userLoginService ;
 	
-	@RequestMapping(value = "/regist", method = RequestMethod.POST)
+	/**
+	 * 
+	 * @param request
+	 * @param userLogin
+	 * @return
+	 */
+	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public ModelAndView regist(HttpServletRequest request, UserLogin userLogin) {
 		HttpSession session = request.getSession();
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("success");
 		
 		//若用户名已存在，则需重新填写
-				try {
-					//userLogin.setLastIp(request.getRemoteAddr());
-					userLoginService.register(userLogin,session);
-					setSessionUser(request, userLogin);
-					log.info("----------注册成功----------");
-				} catch (UserExistException e) {
-					mav.addObject("errorMsg", "用户名已存在，请选择其他的名字");
-					mav.setViewName("forward:/register.jsp");
-					log.info("----------所注册用户名已存在----------");
-				} catch (ValidateCodeExpireException e) {
-					mav.addObject("errorMsg", "验证码过期");
-					mav.setViewName("forward:/register.jsp");
-					log.info("----------验证码过期----------");
-				} catch (ValidateCodeErrorException e) {
-					mav.addObject("errorMsg", "验证码错误");
-					mav.setViewName("forward:/register.jsp");
-					log.info("----------验证码错误----------");
-				} catch (EmailConflictException e) {
-					mav.addObject("errorMsg", "注册邮箱与发送验证码使用的邮箱不一致");
-					mav.setViewName("forward:/register.jsp");
-					log.info("----------注册邮箱与发送验证码使用的邮箱不一致----------");
-				} 
-				
-				return mav;
+		try {
+			//userLogin.setLastIp(request.getRemoteAddr());
+			userLoginService.register(userLogin,session);
+			setSessionUser(request, userLogin);
+			log.info("----------注册成功----------");
+		} catch (UserExistException e) {
+			mav.addObject("errorMsg", "用户名已存在，请选择其他的名字");
+			mav.setViewName("forward:/register.jsp");
+			log.info("----------所注册用户名已存在----------");
+		} catch (ValidateCodeExpireException e) {
+			mav.addObject("errorMsg", "验证码过期");
+			mav.setViewName("forward:/register.jsp");
+			log.info("----------验证码过期----------");
+		} catch (ValidateCodeErrorException e) {
+			mav.addObject("errorMsg", "验证码错误");
+			mav.setViewName("forward:/register.jsp");
+			log.info("----------验证码错误----------");
+		} catch (EmailConflictException e) {
+			mav.addObject("errorMsg", "注册邮箱与发送验证码使用的邮箱不一致");
+			mav.setViewName("forward:/register.jsp");
+			log.info("----------注册邮箱与发送验证码使用的邮箱不一致----------");
+		} 
+		
+		return mav;
 	}
 	
 	@RequestMapping(value = "/email", method = RequestMethod.GET)
@@ -78,7 +89,7 @@ public class RegisterController extends BaseController {
 			new TimerClear(session, CommonConstant.EXPIRE_TIME) ;
 			
 			jsonObject.put("code", 1) ;
-			log.info("----------向正在注册用户: " + userLogin.getName() + " 的邮箱: " + userLogin.getEmail() + " 发送验证码----------");
+			log.info("----------向正在注册邮箱: " + userLogin.getTempEmail() + " 发送验证码----------" + EmailUtil.getVerifyCode());
 		}catch(EmailExistException e) {
 			jsonObject.put("code", 0) ;
 			log.info("----------邮箱已注册----------");

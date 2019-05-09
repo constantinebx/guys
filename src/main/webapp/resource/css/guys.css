@@ -1,0 +1,34 @@
+/* #mainbody {
+	margin-left:1px;
+	margin-right:1px;
+} */
+.article-title {
+	//博客中文章的标题样式
+	font-size:36px;
+	font-weight:bold
+}
+.article-underline {
+	//博客中横线样式
+	height:1px;
+	border-bottom:1px solid #ccc;
+	overflow:hidden;
+	margin-top:8px;
+	margin-bottom:8px;
+}
+.personal-title-underline {
+	//个人中心标题下面的横线样式
+	height:1px;
+	border-bottom:1px solid #ccc;
+	overflow:hidden;
+	margin-top:15px;
+	margin-bottom:10px;
+}
+.personal-left-blank {
+	margin-left:10px;
+	margin-bottom:10px;
+}
+.blog-bread {
+	font-size:150%;
+	color:black;
+	font-weight:bold;
+}

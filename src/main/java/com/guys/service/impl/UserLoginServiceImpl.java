@@ -1,10 +1,15 @@
 package com.guys.service.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.guys.constant.CommonConstant;
 import com.guys.dao.UserLoginDao;
 import com.guys.exception.EmailConflictException;
 import com.guys.exception.EmailExistException;
@@ -15,6 +20,8 @@ import com.guys.model.UserLogin;
 import com.guys.service.UserLoginService;
 import com.guys.utils.EmailUtil;
 
+@Transactional
+@Service("userLoginService")
 public class UserLoginServiceImpl implements UserLoginService {
 	@Resource(name = "userLoginDao")
 	private UserLoginDao userLoginDao ;
@@ -39,7 +46,10 @@ public class UserLoginServiceImpl implements UserLoginService {
 			userLogin.setLastVisit(new Date());
 			*/
 			userLogin.setEmail(userLogin.getTempEmail());
+			userLogin.setPortrait(CommonConstant.PORTRAIT);
 			//userLogin.setPassword(EncryptionUtil.getHash(user.getPassword(), "MD5"));
+			userLogin.setCrtTime(new Date());
+			userLogin.setUpdTime(new Date());
 			userLoginDao.save(userLogin);
 		}
 	}

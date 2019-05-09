@@ -1,21 +1,19 @@
 package com.guys.dao.impl;
 
-import java.io.Serializable;
 import java.util.List;
 
-import org.hibernate.Query;
 import org.springframework.stereotype.Repository;
 
 import com.guys.dao.UserLoginDao;
 import com.guys.model.UserLogin;
 
-@Repository("UserLoginDao")
+@Repository("userLoginDao")
 public class UserLoginDaoImpl extends BaseDaoImpl<UserLogin> implements UserLoginDao {
-	private static final String GET_USER_BY_USERNAME = "from User_login u where u.userName = ?";
+	private static final String GET_USER_BY_USERNAME = "from UserLogin u where u.name = ?";
 
-	private static final String QUERY_USER_BY_USERNAME = "from User_login u where u.userName like ?";
+	private static final String QUERY_USER_BY_USERNAME = "from UserLogin u where u.name like ?";
 	
-	private static final String GET_USER_BY_EMAIL = "from User_login u where u.email = ?" ;
+	private static final String GET_USER_BY_EMAIL = "from UserLogin u where u.email = ?" ;
 
 	@SuppressWarnings({ "unchecked", "deprecation" })
 	public UserLogin getUserLoginByName(String name) {
@@ -34,7 +32,7 @@ public class UserLoginDaoImpl extends BaseDaoImpl<UserLogin> implements UserLogi
 
 	@SuppressWarnings({ "deprecation", "unchecked" })
 	public UserLogin getUserLoginByEmail(String email) {
-		List<UserLogin> userLogins = (List<UserLogin>) getHibernateTemplate().find(GET_USER_BY_USERNAME, email) ;
+		List<UserLogin> userLogins = (List<UserLogin>) getHibernateTemplate().find(GET_USER_BY_EMAIL, email) ;
 		if(userLogins.size() == 0) {
 			return null ;
 		} else {

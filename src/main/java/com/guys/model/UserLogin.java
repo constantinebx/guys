@@ -27,7 +27,10 @@ public class UserLogin {
 	@Column(name = "email",nullable = false)
 	private String email ;
 	
-	@Column(name = "crt_time",nullable = false, updatable = false)
+	@Column(name = "portrait",nullable = false)
+	private String portrait ;
+	
+	@Column(name = "crt_time",nullable = false,updatable = false)
 	private Date crtTime ;
 	
 	@Column(name = "upd_time",nullable = false)
@@ -91,6 +94,14 @@ public class UserLogin {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public String getPortrait() {
+		return portrait;
+	}
+
+	public void setPortrait(String portrait) {
+		this.portrait = portrait;
 	}
 
 	public Date getCrtTime() {

@@ -4,13 +4,11 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 		<title>guys</title>
-		<link rel="icon" href="images/title.jpeg" type="image/c-icon"></link>
-		<link rel="stylesheet" href="layui-v2.3.0/layui/css/layui.css" media="all">
     </head>
 
     <body>
     	<%--头部--%>
-    	<%@include file="top.jsp"%>
+    	<%@include file="../../../top.jsp"%>
 		
     	<%-- 公告 --%>
     	<div class="announcement">
@@ -31,11 +29,25 @@
 
 				<%--中间主题部分--%>
 				<div id="mainbody" class="layui-col-md6">
-					<%-- 图片 --%>
-					<div class="layui-carousel" id="test1">
-					<div carousel-item>
-					  <div><img src="images/planet.jpg"></img></div>
-					  <div><img src="images/timg.jpg"></img></div>
+					<%--主题内容 --%>
+					<div>
+						<div class="article">
+							<div class="article-left">此处放图片</div>
+							<div class="article-right">
+								<div class="article-title">docker</div>
+								<div class="articel-brief">Docker 是一个开源的应用容器引擎，
+								让开发者可以打包他们的应用以及依赖包到一个可移植的容器中，
+								然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。
+								容器是完全使用沙箱机制，相互之间不会有任何接口。</div>
+							</div>
+							<div class="article-foot">
+								<span class="layui-badge layui-bg-gray">日期</span>
+								<span class="layui-badge layui-bg-gray">作者</span>
+								<span class="layui-badge layui-bg-gray">标签</span>
+								<span class="layui-badge layui-bg-gray">浏览量</span>
+								<span class="layui-badge layui-bg-gray">点赞量</span>
+							</div>
+						</div>
 					</div>
 				</div>
 
@@ -47,7 +59,7 @@
 		</div>
     		
     	<%-- 页脚 --%>
-    	<%@include file="foot.jsp" %>
+    	<%@include file="../../../foot.jsp" %>
 
 		<script src="layui-v2.3.0/layui/layui.js"></script>
 		<script>
@@ -62,15 +74,5 @@
 		  }) ;
 		});
 		</script>
-		
-		<script>
-		    document.addEventListener('visibilitychange', function () {
-		    if (document.visibilityState == 'hidden') {
-		        normal_title = document.title;
-		        document.title = '你快回来！';
-		    } else document.title = 'guys';
-		});
-		</script>
-
     </body>
 </html>

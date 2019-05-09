@@ -6,6 +6,7 @@
 		<title>guys</title>
 		<link rel="icon" href="images/title.jpeg" type="image/c-icon"></link>
 		<link rel="stylesheet" href="layui-v2.3.0/layui/css/layui.css" media="all">
+		<script src="resource/jquery.min.js"></script>
     </head>
 
     <body>
@@ -23,35 +24,38 @@
 
 		<%--主体--%>
 		<div id="main" class="layui-container">
-			<div class="layui-row layui-layui-col-space10">
-				<%--左边分类模块--%>
-				<div id="lefttype" class="layui-side-scroll layui-col-md3">
-					<p>左边</p>
-				</div>
-
-				<%--中间主题部分--%>
-				<div id="mainbody" class="layui-col-md6">
-					<%-- 图片 --%>
-					<div class="layui-carousel" id="test1">
-					<div carousel-item>
-					  <div><img src="images/planet.jpg"></img></div>
-					  <div><img src="images/timg.jpg"></img></div>
-					</div>
-				</div>
-
-				<%--右边模块--%>
-				<div id="right" class="layui-col-md3">
-					<p>右边</p>
-				</div>
+			<div id="editor">
+				<p>欢迎使用<b>wangEditor</b>富文本编辑器</p>
 			</div>
+			<button id="editorSetBtn">设置内容</button>
+			<button id="editorGetBtn1">获取内容1</button>
+			<button id="editorGetBtn2">获取内容2</button>
 		</div>
     		
     	<%-- 页脚 --%>
     	<%@include file="foot.jsp" %>
 
 		<script src="layui-v2.3.0/layui/layui.js"></script>
+		<script src="wangEditor/wangEditor.js"></script>
 		<script>
 		//JavaScript代码区域
+		
+		$(function() {
+			var E = window.wangEditor ;
+			var editor = new E("#editor") ;
+			editor.create() ;
+			
+			$("#editorSetBtn").click(function() {
+				editor.txt.html("内容设置完毕") ;
+			}) ;
+			$("#editorGetBtn1").click(function() {
+				alert(editor.txt.html()) ;
+			}) ;
+			$("#editorGetBtn2").click(function() {
+				alert(editor.txt.text()) ;
+			}) ;
+		});
+		
 		layui.use('carousel', function(){
 		  var carousel = layui.carousel;
 		  carousel.render({

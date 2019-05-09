@@ -16,41 +16,44 @@
 
 		<!--主体-->
 		<div class="layui-container layui-row" style="width:1024px;height:658px;background-image:url(images/2.jpg);position:relative">
-			<div class="layui-form layui-container layui-col-md4 layui-col-md-offset4" style="width:256px;height:410px;background-color:white;position:absolute;top:10%">
-				<h2 style="text-align:center;padding: 10px">注册</h2>
-				<div class="layui-form-item">
-					<input class="layui-input" id="username" lay-verify="required" name="username" placeholder="昵称" type="text" />
+			<form action ="<c:url value="/register.html" />" method="post">
+				<div class="layui-form layui-container layui-col-md4 layui-col-md-offset4"  style="width:256px;height:410px;background-color:white;position:absolute;top:10%">
+					<h2 style="text-align:center;padding: 10px">注册</h2>
+					<div class="layui-form-item">
+						<input class="layui-input" id="name" lay-verify="required" name="name" placeholder="昵称" type="text" />
+					</div>
+					<div class="layui-form-item">
+						<input class="layui-input" id="password" lay-verify="required" name="password" placeholder="密码" type="password" />
+					</div>
+					<div class="layui-form-item">
+						<input class="layui-input" id="confirm" lay-verify="required" name="confirm" placeholder="确认密码" type="password" />
+					</div>
+					<div class="layui-form-item">
+						<input class="layui-input" id="tempEmail" lay-verify="required" name="tempEmail" placeholder="邮箱" type="text" />
+					</div>
+					<button id="getCode" class="layui-btn layui-btn-xs">获取验证码</button>
+					<div class="layui-form-item">
+						<input class="layui-input" id="validateCode" lay-verify="required" name="validateCode" placeholder="验证码" type="text" />
+					</div>
+					<div class="layui-form-item">
+						<button class="layui-btn layui-btn-fluid" id="login-submit" lay-filter="login-submit" type="submit">注 册</button>
+					</div>
+					<div class="layui-trans layui-form-item layadmin-user-login-other">
+						<label>社交账号登入</label>
+						<a href="javascript:layer.msg(&#39;敬请期待&#39;);"><i class="layui-icon layui-icon-login-qq"></i></a>
+						<a href="javascript:layer.msg(&#39;敬请期待&#39;);"><i class="layui-icon layui-icon-login-wechat"></i></a>
+						<a href="javascript:layer.msg(&#39;敬请期待&#39;);"><i class="layui-icon layui-icon-login-weibo"></i></a>
+	
+						<a class="layadmin-user-jump-change" href="<c:url value="/login.jsp"/>" style="color:#009688">已有账号</a>
+					</div>
 				</div>
-				<div class="layui-form-item">
-					<input class="layui-input" id="password" lay-verify="required" name="password" placeholder="密码" type="password" />
-				</div>
-				<div class="layui-form-item">
-					<input class="layui-input" id="confirm" lay-verify="required" name="password" placeholder="确认密码" type="password" />
-				</div>
-				<div class="layui-form-item">
-					<input class="layui-input" id="email" lay-verify="required" name="email" placeholder="邮箱" type="text" />
-				</div>
-				<button id="getCode" class="layui-btn layui-btn-xs">获取验证码</button>
-				<div class="layui-form-item">
-					<input class="layui-input" id="validate" lay-verify="required" name="validate" placeholder="验证码" type="text" />
-				</div>
-				<div class="layui-form-item">
-					<button class="layui-btn layui-btn-fluid" id="login-submit" lay-filter="login-submit" lay-submit="">注 册</button>
-				</div>
-				<div class="layui-trans layui-form-item layadmin-user-login-other">
-					<label>社交账号登入</label>
-					<a href="javascript:layer.msg(&#39;敬请期待&#39;);"><i class="layui-icon layui-icon-login-qq"></i></a>
-					<a href="javascript:layer.msg(&#39;敬请期待&#39;);"><i class="layui-icon layui-icon-login-wechat"></i></a>
-					<a href="javascript:layer.msg(&#39;敬请期待&#39;);"><i class="layui-icon layui-icon-login-weibo"></i></a>
-
-					<a class="layadmin-user-jump-change" href="<c:url value="/login.jsp"/>" style="color:#009688">已有账号</a>
-				</div>
-			</div>
+			</form>
 		</div>
     		
     	<!-- 页脚 -->
     	<%@include file="foot.jsp" %>
 		
+		<script src="layui-v2.3.0/layui/layui.js"></script>
 		<script>
 			layui.use('form', function(){
 			  var form = layui.form;
@@ -58,7 +61,7 @@
 		</script>
 		
 		<script>
-			var TIME=60;
+			var TIME=3;
 			var count=TIME;
 			$('#getCode').on('click', function() {
 				var obj=$('#getCode');
@@ -89,6 +92,7 @@
 				});
 			});
 			
+			//设置有效时间内不能点击获取验证码
 			function setTime(obj) {
 				if(count == 0) {
 					obj.attr('disabled', false);

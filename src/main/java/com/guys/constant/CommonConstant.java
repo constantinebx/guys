@@ -21,4 +21,9 @@ public class CommonConstant {
 	 * 邮箱注册验证码的过期时间,单位秒
 	 */
 	public static final int EXPIRE_TIME = 60 ;
+	
+	/**
+	 * 默认头像路径
+	 */
+	public static final String PORTRAIT = "resource/user/common/portrait/default.jpg" ;
 }

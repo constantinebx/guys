@@ -96,6 +96,12 @@
 		<filter-name>HiddenHttpMethodFilter</filter-name>
 		<servlet-name>springDispatcherServlet</servlet-name>
 	</filter-mapping>
+	
+	<context-param>
+		<param-name>webAppRootKey</param-name>
+		<param-value>webApp.root</param-value>
+	</context-param>
+	
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>

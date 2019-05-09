@@ -7,6 +7,7 @@ import org.hibernate.Query;
 
 import com.guys.dao.impl.Page;
 
+@SuppressWarnings("deprecation")
 public interface BaseDao<T> {
 	/**
 	 * 根据ID加载PO实例
@@ -123,5 +124,6 @@ public interface BaseDao<T> {
 	 *            可变参数
 	 * @return Query对象
 	 */
+	@SuppressWarnings("rawtypes")
 	public Query createQuery(String hql, Object... values);
 }

@@ -2,14 +2,14 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <head>
-	<link rel="stylesheet" href="resource/css/guys.css" media="all">
-	<link rel="stylesheet" href="layui-v2.3.0/layui/css/layui.css" media="all">
+	<link rel="stylesheet" href="../resource/css/guys.css" media="all">
+	<link rel="stylesheet" href="../layui-v2.3.0/layui/css/layui.css" media="all">
 </head>
 
 <div class="header layui-bg-black layui-header" name = "top">
 	<div class="layui-logo">
 		<a href="<c:url value="/index.jsp"/>">
-			<img src="images/5.jpg" width="100" height="50"></img>
+			<img src="../images/5.jpg" width="100" height="50"></img>
 		</a>
 	</div>
 	<!-- 头部区域（可配合layui已有的水平导航） -->
@@ -24,11 +24,11 @@
 	    
 		<li class="layui-nav-item">
 			<a>
-				<img src="${USER_CONTEXT.portrait}" class="layui-nav-img">
+				<img src="../${USER_CONTEXT.portrait}" class="layui-nav-img">
 				${USER_CONTEXT.name}
 			</a>
 			<dl class="layui-nav-child">
-		      <dd><a href="<c:url value="/personal/info.html"/>">个人中心</a></dd>
+		      <dd><a href="/personal/info.html">个人中心</a></dd>
 		      <dd><a href="javascript:;">安全管理</a></dd>
 		    </dl>
 		</li>
@@ -43,10 +43,10 @@
 	
 </div>
 <div>
-	<marquee behavior="scroll" direction="right" style="color:red;"> 通知，网站建设中！</marquee>
+	<marquee behavior="scroll" direction="right" style="color:red;"> 通知:网站建设中！</marquee>
 </div>
 
-<script src="layui-v2.3.0/layui/layui.js"></script>
+<script src="../layui-v2.3.0/layui/layui.js"></script>
 <script>
 	//JavaScript代码区域
 	layui.use('carousel', function(){

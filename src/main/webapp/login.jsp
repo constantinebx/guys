@@ -14,12 +14,17 @@
     	<%@include file="top.jsp" %>
 
 		<!--主体-->
+		<c:if test="${!empty errorMsg}">
+			<div style="color:red">${errorMsg}</div>
+		</c:if>
+		
 		<div class="layui-container layui-row" style="width:1024px;height:658px;background-image:url(images/2.jpg);position:relative">
+			<form action="<c:url value="/login/doLogin.html" />" method="post">
 			<div class="layui-form layui-container layui-col-md3 layui-col-md-offset8" style="width:256px;height:300px;background-color:white;position:absolute;top:30%">
 				<h2 style="text-align:center">登录</h2>
 				<div class="layui-form-item">
 					<label class="layadmin-user-login-icon layui-icon layui-icon-username"></label>
-					<input class="layui-input" id="username" lay-verify="required" name="username" placeholder="用户名" type="text" />
+					<input class="layui-input" id="name" lay-verify="required" name="name" placeholder="用户名" type="text" />
 				</div>
 				<div class="layui-form-item">
 					<label class="layadmin-user-login-icon layui-icon layui-icon-password"></label>
@@ -42,7 +47,9 @@
 					<a class="layadmin-user-jump-change" href="<c:url value="/register.jsp"/>" style="color:#009688">注册帐号</a>
 				</div>
 			</div>
+			</form>
 		</div>
+		
     		
     	<!-- 页脚 -->
     	<%@include file="foot.jsp" %>

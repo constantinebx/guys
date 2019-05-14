@@ -31,4 +31,11 @@ public interface BlogDao extends BaseDao<Article> {
 	 * @return
 	 */
 	public List<Article> findAll() ;
+	
+	
+	/**
+	 * 查找最近更新的文章
+	 * @return
+	 */
+	public List<Article> listLatest() ;
 }

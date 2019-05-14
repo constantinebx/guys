@@ -44,6 +44,24 @@ public class Article {
 	@Column(name = "limition", nullable = false)
 	private int limition ;
 	
+	/**
+	 * 浏览量
+	 */
+	@Column(name = "browse", nullable = false)
+	private int browse ;
+	
+	/**
+	 * 点赞量
+	 */
+	@Column(name = "praise", nullable = false)
+	private int praise ;
+	
+	/**
+	 * 作者主键
+	 */
+	@Column(name = "i_user_login", nullable = false)
+	private Integer iuserLogin ;
+	
 	@Column(name = "crt_time", nullable = false)
 	private Date crt_time ;
 	
@@ -104,6 +122,34 @@ public class Article {
 
 	public void setUpd_time(Date upd_time) {
 		this.upd_time = upd_time;
+	}
+
+	public int getBrowse() {
+		return browse;
+	}
+
+	public void setBrowse(int browse) {
+		this.browse = browse;
+	}
+
+	public int getPraise() {
+		return praise;
+	}
+
+	public void setPraise(int praise) {
+		this.praise = praise;
+	}
+
+	public Integer getIuserLogin() {
+		return iuserLogin;
+	}
+
+	public void setIuserLogin(Integer iuserLogin) {
+		this.iuserLogin = iuserLogin;
+	}
+
+	public void setLimition(int limition) {
+		this.limition = limition;
 	}
 	
 }

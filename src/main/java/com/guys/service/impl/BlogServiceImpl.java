@@ -56,4 +56,9 @@ public class BlogServiceImpl implements BlogService {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	public List<Article> listLatest() {
+		List<Article> articles = blogDao.listLatest() ;
+		return articles;
+	}
 }

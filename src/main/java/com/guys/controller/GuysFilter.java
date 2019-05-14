@@ -19,9 +19,11 @@ public class GuysFilter implements Filter {
 	/**
 	 * 不需要登录即可访问的URI资源
 	 */
-	private static final String[] INHERENT_ESCAPE_URIS = { "/index.jsp", "/index.html", "/login.jsp",
-			"/login/doLogin.html", "/blog.jsp", "/register.jsp", "/register.html", "/email.html", "/board/listBoardTopics-",
-			"/board/listTopicPosts-" };
+	private static final String[] INHERENT_ESCAPE_URIS = { 
+		"/index.jsp", "/index.html", "/login.jsp","/login/doLogin.html","/login/toLogin.html", 
+		"/login/blog.html", "/blog.jsp", "/register.jsp", "/register.html","/toRegister.html",
+		"/email.html"
+	};
 
 	/**
 	 * 执行过滤

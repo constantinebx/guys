@@ -13,7 +13,7 @@
     	<%@include file="top.jsp" %>
 
 		<!--主体-->
-		<div class="layui-container layui-row" style="width:1024px;height:658px;background-image:url(images/2.jpg);position:relative">
+		<div class="layui-container layui-row" style="width:1024px;height:658px;background-image:url(${pageContext.request.contextPath}/images/2.jpg);position:relative">
 			<form action ="<c:url value="/register.html" />" method="post">
 				<div class="layui-form layui-container layui-col-md4 layui-col-md-offset4"  style="width:256px;height:410px;background-color:white;position:absolute;top:10%">
 					<h2 style="text-align:center;padding: 10px">注册</h2>
@@ -50,13 +50,6 @@
     		
     	<!-- 页脚 -->
     	<%@include file="foot.jsp" %>
-		
-		<script src="layui-v2.3.0/layui/layui.js"></script>
-		<script>
-			layui.use('form', function(){
-			  var form = layui.form;
-			});
-		</script>
 		
 		<script>
 			var TIME=3;

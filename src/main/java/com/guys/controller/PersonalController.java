@@ -23,7 +23,7 @@ public class PersonalController extends BaseController {
 	@RequestMapping("/info")
 	public ModelAndView toUpdateInfo(HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView() ;
-		mav.setViewName("forward:/jsp/personal/info.jsp");
+		mav.setViewName("/personal/info");
 		return mav ;
 	}
 }

@@ -2,20 +2,24 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <head>
-	<link rel="stylesheet" href="../resource/css/guys.css" media="all">
-	<link rel="stylesheet" href="../layui-v2.3.0/layui/css/layui.css" media="all">
+	<link rel="icon" href="${pageContext.request.contextPath}/images/title.jpeg" type="image/c-icon"></link>
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/guys.css" media="all">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resource/layui-v2.3.0/layui/css/layui.css" media="all">
+	<script src="${pageContext.request.contextPath}/resource/jquery.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resource/layui-v2.3.0/layui/layui.js"></script>
+	<script src="${pageContext.request.contextPath}/resource/wangEditor/wangEditor.js"></script>
 </head>
 
 <div class="header layui-bg-black layui-header" name = "top">
 	<div class="layui-logo">
 		<a href="<c:url value="/index.jsp"/>">
-			<img src="../images/5.jpg" width="100" height="50"></img>
+			<img src="${pageContext.request.contextPath}/images/5.jpg" width="100" height="50"></img>
 		</a>
 	</div>
 	<!-- 头部区域（可配合layui已有的水平导航） -->
 	<ul class="layui-nav layui-layout-left">
 	  <li id="index" class="layui-nav-item"><a href="<c:url value="/index.jsp"/>">首页</a></li>
-	  <li id="blog" class="layui-nav-item"><a href="<c:url value="/blog.jsp"/>">博客</a></li>
+	  <li id="blog" class="layui-nav-item"><a href="<c:url value="/login/blog.html"/>">博客</a></li>
 	  <li class="layui-nav-item"><a href="">资源</a></li>
 	  <li class="layui-nav-item"><a href="<c:url value="/tobecontinue.jsp"/>">待续</a></li>
 	</ul>
@@ -28,7 +32,7 @@
 				${USER_CONTEXT.name}
 			</a>
 			<dl class="layui-nav-child">
-		      <dd><a href="/personal/info.html">个人中心</a></dd>
+		      <dd><a href="<c:url value="/personal/info.html"/>">个人中心</a></dd>
 		      <dd><a href="javascript:;">安全管理</a></dd>
 		    </dl>
 		</li>
@@ -36,8 +40,8 @@
 	  </c:if>
 	  &nbsp;&nbsp;
 	  <c:if test="${empty USER_CONTEXT.name}">
-		<li class="layui-nav-item"><a href="<c:url value="/login.jsp"/>">登录</a></li>&nbsp;&nbsp;
-		<li class="layui-nav-item"><a href="<c:url value="/register.jsp"/>">注册</a></li>
+		<li class="layui-nav-item"><a href="<c:url value="/login/toLogin.html"/>">登录</a></li>&nbsp;&nbsp;
+		<li class="layui-nav-item"><a href="<c:url value="/toRegister.html"/>">注册</a></li>
 	  </c:if>
 	</ul>
 	
@@ -46,7 +50,6 @@
 	<marquee behavior="scroll" direction="right" style="color:red;"> 通知:网站建设中！</marquee>
 </div>
 
-<script src="../layui-v2.3.0/layui/layui.js"></script>
 <script>
 	//JavaScript代码区域
 	layui.use('carousel', function(){
@@ -73,4 +76,12 @@
 	    return false;
 	  });
 	});
+</script>
+<script>
+    document.addEventListener('visibilitychange', function () {
+    if (document.visibilityState == 'hidden') {
+        normal_title = document.title;
+        document.title = '你快回来！';
+    } else document.title = 'guys';
+});
 </script>

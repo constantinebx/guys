@@ -17,7 +17,7 @@
 			<div style="color:red">${errorMsg}</div>
 		</c:if>
 		
-		<div class="layui-container layui-row" style="width:1024px;height:658px;background-image:url(images/2.jpg);position:relative">
+		<div class="layui-container layui-row" style="width:1024px;height:658px;background-image:url(${pageContext.request.contextPath}/images/2.jpg);position:relative">
 			<form action="<c:url value="/login/doLogin.html" />" method="post">
 			<div class="layui-form layui-container layui-col-md3 layui-col-md-offset8" style="width:256px;height:300px;background-color:white;position:absolute;top:30%">
 				<h2 style="text-align:center">登录</h2>
@@ -53,7 +53,6 @@
     	<!-- 页脚 -->
     	<%@include file="foot.jsp" %>
 
-		<script src="layui-v2.3.0/layui/layui.js"></script>
 		<script>
 			layui.use('form', function(){
 			  var form = layui.form;

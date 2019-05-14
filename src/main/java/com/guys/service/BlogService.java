@@ -36,4 +36,10 @@ public interface BlogService {
 	 * @param articles
 	 */
 	public List<Article> deleteLimition(List<Article> articles, UserLogin user) ;
+	
+	/**
+	 * 查找最近更新的文章，用户主页中展示
+	 * @return
+	 */
+	public List<Article> listLatest() ;
 }

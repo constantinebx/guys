@@ -1,0 +1,2 @@
+INSERT INTO t_user_login(name,password,email,portrait,crt_time,upd_time)VALUES('no','123','812138195@qq.com','resource/user/common/portrait/default.jpg',now(),now());
+INSERT INTO t_user_login(name,password,email,portrait,crt_time,upd_time)VALUES('xiaofei','123','1771045037@qq.com','resource/user/common/portrait/default.jpg',now(),now());

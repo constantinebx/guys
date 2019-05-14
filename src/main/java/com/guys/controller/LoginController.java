@@ -1,5 +1,7 @@
 package com.guys.controller;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -10,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.guys.constant.CommonConstant;
+import com.guys.model.Article;
 import com.guys.model.UserLogin;
+import com.guys.service.BlogService;
 import com.guys.service.UserLoginService;
 
 @Controller
@@ -18,6 +22,8 @@ import com.guys.service.UserLoginService;
 public class LoginController extends BaseController {
 	@Resource(name = "userLoginService")
 	public UserLoginService userLoginService ;
+	@Resource(name = "blogService")
+	private BlogService blogService ;
 	
 	/**
 	 * 用户登录
@@ -54,6 +60,18 @@ public class LoginController extends BaseController {
 	}
 	
 	/**
+	 * 跳转到登录页面
+	 * @param request
+	 * @return
+	 */
+	@RequestMapping("/toLogin")
+	public ModelAndView toLogin(HttpServletRequest request) {
+		ModelAndView mav = new ModelAndView() ;
+		mav.setViewName("login");
+		return mav ;
+	}
+	
+	/**
 	 * 用户注销
 	 * @param session
 	 * @return
@@ -69,10 +87,14 @@ public class LoginController extends BaseController {
 		return mav;
 	}
 	
-	@RequestMapping("/editor")
-	public ModelAndView editor(HttpServletRequest request) {
+	@RequestMapping("/blog")
+	public ModelAndView blog(HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView() ;
-		mav.setViewName("forward:/editor.jsp");
+		
+		List<Article> articles = blogService.listLatest() ;
+		mav.addObject("articles", articles) ;
+		
+		mav.setViewName("blog");
 		return mav ;
 	}
 	

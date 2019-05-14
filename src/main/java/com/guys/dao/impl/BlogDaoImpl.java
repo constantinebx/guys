@@ -50,4 +50,14 @@ public class BlogDaoImpl extends BaseDaoImpl<Article> implements BlogDao{
 		return articles ;
 	}
 
+	@SuppressWarnings({ "unchecked", "deprecation" })
+	public List<Article> listLatest() {
+		String hql = "from Article order by crt_time desc" ;
+		List<Article> articles = (List<Article>)getHibernateTemplate().find(hql) ;
+		if(articles.size() == 0) {
+			return null ;
+		}
+		return articles ;
+	}
+
 }

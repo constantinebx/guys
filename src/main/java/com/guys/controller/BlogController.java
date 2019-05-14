@@ -27,7 +27,7 @@ public class BlogController extends BaseController {
 	@RequestMapping("/editor")
 	public ModelAndView editor(HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView() ;
-		mav.setViewName("forward:/editor.jsp");
+		mav.setViewName("/blog/editor");
 		return mav ;
 	}
 	
@@ -39,7 +39,7 @@ public class BlogController extends BaseController {
 	@RequestMapping("/listArticle")
 	public ModelAndView listBlog(HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView() ;
-		mav.setViewName("/listArticle.jsp");
+		mav.setViewName("/blog/listArticle");
 		
 		UserLogin user = this.getSessionUser(request) ;		
 		List<Article> articles = blogService.getAllArticle(user) ;

@@ -4,19 +4,12 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 		<title>guys</title>
-		<link rel="icon" href="images/title.jpeg" type="image/c-icon"></link>
-		<link rel="stylesheet" href="layui-v2.3.0/layui/css/layui.css" media="all">
     </head>
 
     <body>
     	<%--头部--%>
     	<%@include file="top.jsp"%>
 		
-    	<%-- 公告 --%>
-    	<div class="announcement">
-    		
-    	</div>
-
     	<%-- 导航 --%>
     	<div class="guidelayui-breadcrumb" layui-separator="|">
 		</div>
@@ -48,29 +41,6 @@
     		
     	<%-- 页脚 --%>
     	<%@include file="foot.jsp" %>
-
-		<script src="layui-v2.3.0/layui/layui.js"></script>
-		<script>
-		//JavaScript代码区域
-		layui.use('carousel', function(){
-		  var carousel = layui.carousel;
-		  carousel.render({
-			  elem: '#test1'
-				,width: '100%' //设置容器宽度
-				,arrow: 'always' //始终显示箭头
-				//,anim: 'updown' //切换动画方式
-		  }) ;
-		});
-		</script>
-		
-		<script>
-		    document.addEventListener('visibilitychange', function () {
-		    if (document.visibilityState == 'hidden') {
-		        normal_title = document.title;
-		        document.title = '你快回来！';
-		    } else document.title = 'guys';
-		});
-		</script>
 
     </body>
 </html>

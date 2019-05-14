@@ -26,4 +26,9 @@ public class CommonConstant {
 	 * 默认头像路径
 	 */
 	public static final String PORTRAIT = "resource/user/common/portrait/default.jpg" ;
+	
+	/**
+	 * 头像路径前缀
+	 */
+	public static final String PORTRAITPRE = "resource/user/common/portrait/" ;
 }

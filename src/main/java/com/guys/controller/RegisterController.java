@@ -73,6 +73,18 @@ public class RegisterController extends BaseController {
 		return mav;
 	}
 	
+	/**
+	 * 跳转到注册页面
+	 * @param request
+	 * @return
+	 */
+	@RequestMapping("/toRegister")
+	public ModelAndView toRegister(HttpServletRequest request) {
+		ModelAndView mav = new ModelAndView() ;
+		mav.setViewName("register");
+		return mav ;
+	}
+	
 	@RequestMapping(value = "/email", method = RequestMethod.GET)
 	@ResponseBody
 	public JSONObject email(HttpServletRequest request, UserLogin userLogin,String tempEmail) {
